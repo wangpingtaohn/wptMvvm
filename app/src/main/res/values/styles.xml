@@ -1,0 +1,18 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+    <style name="GeneralDialogStyle" parent="Theme.AppCompat.Light.Dialog">
+        <item name="android:windowBackground">#00000000</item>
+    </style>
+    <!--圆角-->
+    <style name="iv_top_radius_9">
+        <item name="cornerSizeTopLeft">9dp</item>
+        <item name="cornerSizeTopRight">9dp</item>
+    </style>
+</resources>
