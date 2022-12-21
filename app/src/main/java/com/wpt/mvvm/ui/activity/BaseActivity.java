@@ -16,7 +16,8 @@ import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProviders;
 import com.wpt.mvvm.R;
 import com.wpt.mvvm.utils.StatusBarUtil;
-import com.wpt.mvvm.viewmodel.BaseViewModel;
+import com.zhongke.common.base.viewmodel.BaseViewModel;
+
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 

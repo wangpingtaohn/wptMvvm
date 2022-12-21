@@ -1,6 +1,7 @@
 package com.wpt.mvvm.viewmodel
 
 import androidx.lifecycle.viewModelScope
+import com.zhongke.common.base.viewmodel.BaseViewModel
 import kotlinx.coroutines.*
 
 /**
@@ -10,7 +11,25 @@ import kotlinx.coroutines.*
  * @param error 失败回调 可不给
  */
 fun <T> BaseViewModel.launch(
-    block: () -> T,
+    block: suspend () -> T,
+    success: (T) -> Unit,
+    error: (Throwable) -> Unit = {}
+): Job  {
+    return viewModelScope.launch {
+        kotlin.runCatching {
+            withContext(Dispatchers.IO) {
+                block()
+            }
+        }.onSuccess {
+            success(it)
+        }.onFailure {
+            error(it)
+        }
+    }
+}
+
+fun <T> BaseViewModel.request(
+    block: suspend () -> T,
     success: (T) -> Unit,
     error: (Throwable) -> Unit = {}
 ): Job  {
