@@ -13,13 +13,9 @@ import com.zhongke.common.base.viewmodel.BaseViewModel
  */
 class MainViewModel : BaseViewModel() {
 
-    private val bannerData by lazy {
-        MutableLiveData<List<Banner>>()
-    }
-
-    fun testRequest(success: (ResponseData<List<Banner>>) -> Unit,
+    fun testRequest(success: (List<Banner>) -> Unit,
                     error: (Any) -> Unit
     ) {
-        request({ RetrofitClient.getApi(HttpService::class.java).getBanner()},success,error);
+        request({ RetrofitClient.getApi(HttpService::class.java).getBanner()},success,error)
     }
 }

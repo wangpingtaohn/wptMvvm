@@ -1,7 +1,7 @@
 package com.wpt.mvvm.http
 
 import com.google.gson.GsonBuilder
-import com.wpt.mvvm.app.MyApplication
+import com.wpt.mvvm.base.BaseApplication
 import com.wpt.mvvm.http.intercetor.HeaderInterceptor
 import okhttp3.Cache
 import okhttp3.OkHttpClient
@@ -83,7 +83,7 @@ object RetrofitClient {
     private fun getOkHttpClient(): OkHttpClient {
         val builder = OkHttpClient().newBuilder()
 
-        val cacheFile = File(MyApplication.context?.cacheDir, "cache")
+        val cacheFile = File(BaseApplication.context?.cacheDir, "cache")
         val cache = Cache(cacheFile, 1024 * 1024 * 50)// 50M 的缓存大小
 
         builder.run {
